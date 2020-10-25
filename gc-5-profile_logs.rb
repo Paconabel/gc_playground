@@ -1,4 +1,6 @@
 require 'ostruct'
+require 'logger'
+
 GC::Profiler.enable
 
 ACCOUNT = 'CTLN-1234567890-EUR'
@@ -6,20 +8,17 @@ ACCOUNT = 'CTLN-1234567890-EUR'
 def create_transaction
   OpenStruct.new(
     amount: 10,
-    account: account,
+    account: ACCOUNT,
     entry_type: 'credit'
   )
 end
 
-def account
-  'CTLN-1234567890-EUR'
-end
+log = Logger.new(STDOUT)
 
 arri = []
 100000.times do
-p 'vamos a loguear'
+log.info('Logging Process Starting')
 arri << create_transaction
-p 'hemos logueado'
 end
 
 GC.start

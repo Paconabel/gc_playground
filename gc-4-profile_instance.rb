@@ -22,8 +22,9 @@ class Transaction
 end
 
 arri = []
-1000000.times do
+500000.times do
 arri << Transaction.new('credit', 'CTLN-1234567890-EUR').create
+# arri << Transaction.do('credit', 'CTLN-1234567890-EUR')
 end
 
 GC.start

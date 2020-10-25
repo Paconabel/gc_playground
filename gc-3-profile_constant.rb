@@ -16,10 +16,11 @@ def account
 end
 
 arri = []
-100000.times do
+500000.times do
 arri << create_transaction
 end
 
 GC.start
+
 
 GC::Profiler.report
