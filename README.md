@@ -55,6 +55,8 @@ It runs 500000 times a transaction object creation collected in an array. In the
 
 To change it, in the line 9, we can replace `account` by `ACCOUNT`. When we use a variable, there are more garbage collections and more Ruby objects.
 
+We can also `freeze` the String variables to reduce the object allocation. We can change account in line 9 between `account`, `constant_account`, `frozen_account` and compare results.
+
 #### Call to a static method that instances the class and executes a method does not make difference with calling directly to the method with the class instance:
 
 To run it: `ruby gc-4-profile_instance.rb`
@@ -62,6 +64,8 @@ To run it: `ruby gc-4-profile_instance.rb`
 It runs 500000 times a transaction object creation collected in an array. In the object creation we can call a static method that instances the class and creates the transaction or we can call directly the instance method `create`. (we can comment or uncomment lines 26,27 to switch between them)
 
 Regardless of any of the two executions, there are the same garbage collections and Ruby objects.
+
+We can also call to a static method without creating `ClassTransaction` instances, but results are roughly the same.
 
 #### Logging before and after the execution of a method affect our performance:
 
@@ -77,8 +81,11 @@ To run it: `ruby gc-6-profile_collect_and_iterate.rb`
 
 It parses a csv file from the fixture folder. There are three example files: one with 75 rows, other with 500 rows and the largest one with 2000 rows. We can change them adding on line 6 the name of the csv file.
 
-We can switch (line 54) between the `store_movies_with_map` method and the `store_movies_with_each` method in our code to see the difference between: create an object for each row, collect and store them and create an object for each row and directly store them.
+We can switch (line 54) between the `store_movies_with_map` method and the `store_movies_with_each` method in our code to see the difference between:
+- Store our movies in a variable, create an object for each row, collect and store them
+- Read them on-the-fly, create an object for each row and directly store them one by one.~
 
+You can change `MOVIES_FILE_PATH` to select different fixtures:
 - For the 75 row file there is no difference
 - For the 500 row file more objects remain created and more memory is taken when the process is finished for the `store_movies_with_map` method
 - For the 2000 rows file more objects remain created and more memory is taken when the process is finished for the `store_movies_with_map` method
