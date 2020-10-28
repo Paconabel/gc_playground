@@ -90,6 +90,49 @@ You can change `MOVIES_FILE_PATH` to select different fixtures:
 - For the 500 row file more objects remain created and more memory is taken when the process is finished for the `store_movies_with_map` method
 - For the 2000 rows file more objects remain created and more memory is taken when the process is finished for the `store_movies_with_map` method
 
+#### Creating objects and where are stored
+
+To run it: `ruby gc-7-heap-vs-stack.rb`
+
+It creates an array and store different types of objects, you can see `Integer` and tiny `String` are stored in stack if possible, whether the rest is allocated in the heap. You can change line 13 to check where these `String` are allocated to.
+
+We can use `GC.stat` to inspect the heap.
+
+#### Debug object allocation in heap
+
+To run it: `ruby gc-8-object-allocation-heap.rb`
+
+It creates some types of objects and goes through the heap to find them and print information about:
+- Memory size
+- Source file and line where object was allocated
+- GC generation phase
+- Class name
+- method used to create the object
+
+Also it dumps all the information in a JSON file. This is useful to debug with other tools like [MemoryDiagnostics](https://github.com/discourse/discourse/blob/586cca352d1bb2bb044442d79a6520c9b37ed1ae/lib/memory_diagnostics.rb) or [heapy](https://github.com/schneems/heapy).
+
+#### Debug object allocation in heap ( part 2 )
+
+To run it: `ruby gc-9-object-allocation-heap.rb`
+
+It creates some types of objects and goes through the heap to find them and print information about the object instances, very similar to `ObjectSpace.count_objects`
+
+You can also try [gc_tracer](https://github.com/ko1/gc_tracer)
+
+#### Destroying the objects in heap
+
+To run it: `ruby gc-10-object-finalizers.rb`
+
+It used `define_finalizer` to define a `proc` that should be called when the object is garbage collected.
+
+Usually this is only need to free up native resources in gems using C extensions, be aware when defining the `proc` to avoid [memory leaks](https://www.mikeperham.com/2010/02/24/the-trouble-with-ruby-finalizers/)
+
+#### Allocating memory
+
+To run it: `ruby gc-11-allocating.rb`
+
+It shows a different way to create objects without initializing them, mostly used in gems with C extensions to decorate C structs as a Ruby object.
+
 ## GC information
 
 We are using:
