@@ -1,11 +1,12 @@
 require 'csv'
 require 'ostruct'
+
 GC::Profiler.enable
 
 class Parser
-  MOVIES_FILE_PATH = 'fixtures/movies_500.csv'
-  class << self
+  MOVIES_FILE_PATH = 'fixtures/movies_500.csv'.freeze
 
+  class << self
     def store_movies_with_map
       content = File.read(MOVIES_FILE_PATH)
       options = { headers: :first_row, liberal_parsing: { double_quote_outside_quote: true } }
@@ -53,6 +54,7 @@ end
 display_count
 Parser.store_movies_with_map
 display_count
+
 GC.start
 
 GC::Profiler.report

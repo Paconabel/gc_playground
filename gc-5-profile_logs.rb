@@ -13,12 +13,13 @@ def create_transaction
   )
 end
 
-log = Logger.new(STDOUT)
+log = Logger.new(File::NULL)
 
 arri = []
+
 100000.times do
-log.info('Logging Process Starting')
-arri << create_transaction
+  log.info('Logging Process Starting')
+  arri << create_transaction
 end
 
 GC.start
