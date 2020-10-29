@@ -246,13 +246,13 @@ These numbers are cumulative for the life of the process. They are never reset a
 
 ##### Blog posts
 
-[The trouble with finalizers](https://www.mikeperham.com/2010/02/24/the-trouble-with-ruby-finalizers/)
-[A guide to GC.stat](https://www.speedshop.co/2017/03/09/a-guide-to-gc-stat.html)
+- [The trouble with finalizers](https://www.mikeperham.com/2010/02/24/the-trouble-with-ruby-finalizers/)
+- [A guide to GC.stat](https://www.speedshop.co/2017/03/09/a-guide-to-gc-stat.html)
 
 ##### Tools
 
-[memory_profiler](https://github.com/SamSaffron/memory_profiler)
-[derailed_benchmarks](https://github.com/schneems/derailed_benchmarks)
-[gc_tracer](https://github.com/ko1/gc_tracer)
-[heapy](https://github.com/schneems/heapy)
-[MemoryDiagnostics](https://github.com/discourse/discourse/blob/586cca352d1bb2bb044442d79a6520c9b37ed1ae/lib/memory_diagnostics.rb)
+- [memory_profiler](https://github.com/SamSaffron/memory_profiler)
+- [derailed_benchmarks](https://github.com/schneems/derailed_benchmarks)
+- [gc_tracer](https://github.com/ko1/gc_tracer)
+- [heapy](https://github.com/schneems/heapy)
+- [MemoryDiagnostics](https://github.com/discourse/discourse/blob/586cca352d1bb2bb044442d79a6520c9b37ed1ae/lib/memory_diagnostics.rb)
