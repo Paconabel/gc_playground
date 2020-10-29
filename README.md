@@ -248,6 +248,13 @@ These numbers are cumulative for the life of the process. They are never reset a
 
 - [The trouble with finalizers](https://www.mikeperham.com/2010/02/24/the-trouble-with-ruby-finalizers/)
 - [A guide to GC.stat](https://www.speedshop.co/2017/03/09/a-guide-to-gc-stat.html)
+- [The Limits of Copy-on-write: How Ruby Allocates Memory](https://brandur.org/ruby-memory)
+- [Ruby Garbage Collection](https://scoutapm.com/blog/ruby-garbage-collection)
+- [Peter's Adventures in Ruby: Garbage Collection in Ruby](https://blog.peterzhu.ca/notes-on-ruby-gc)
+- [A People's History of the Ruby Garbage Collector (FOSDEM 2017)](https://archive.fosdem.org/2017/schedule/event/ruby_a_people_s_history_of_the_ruby_garbage_collector/)
+- [Ruby 2.7 and the Compacting Garbage Collector](https://engineering.appfolio.com/appfolio-engineering/2019/3/22/ruby-27-and-the-compacting-garbage-collector)
+- [Understanding and tuning garbage collector in Ruby](https://klika.ba/blog/understanding-and-tuning-garbage-collector-in-ruby)
+- [What causes Ruby memory bloat?](https://www.joyfulbikeshedding.com/blog/2019-03-14-what-causes-ruby-memory-bloat.html)
 
 ##### Tools
 
@@ -256,3 +263,4 @@ These numbers are cumulative for the life of the process. They are never reset a
 - [gc_tracer](https://github.com/ko1/gc_tracer)
 - [heapy](https://github.com/schneems/heapy)
 - [MemoryDiagnostics](https://github.com/discourse/discourse/blob/586cca352d1bb2bb044442d79a6520c9b37ed1ae/lib/memory_diagnostics.rb)
+- [heap_dumper_visualizer](https://github.com/FooBarWidget/heap_dumper_visualizer)
